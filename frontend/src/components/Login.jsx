@@ -2,7 +2,7 @@ import React from 'react'
 import { AppBar, styled, Box, Dialog, Typography, List, ListItem, ListItemText} from '@mui/material'
 import Portfolio from '../../public/portfolio.png'
 import { GoogleLogin } from '@react-oauth/google'
-import { jwtDecode } from "jwt-decode";
+// import { jwtDecode } from "jwt-decode";
 export default function Login() {
 
     const Header = styled(AppBar)`
@@ -22,7 +22,7 @@ export default function Login() {
         padding: 3rem;
         user-select: none;
         `
-        const Right = styled(Box)`
+    const Right = styled(Box)`
         height:100%;
         width:40%;
         box-sizing: border-box;
@@ -37,7 +37,7 @@ export default function Login() {
         maxWidth: '100%',
         height:'80%',
         bgcolor: 'background.paper',
-        boxShadow: 'none',
+        boxShadow: 24,
         display: 'flex',
         flexDirection: 'row',
         flexWrap:'flex-wrap',
@@ -64,7 +64,7 @@ export default function Login() {
     `
 
     const LoginSuccess = (data)=>{
-        console.log(jwtDecode(data.credential))
+        localStorage.setItem('token',data.credential)
     }
     const LoginError = ()=>{
         console.log('login failed')
@@ -79,7 +79,7 @@ export default function Login() {
                 Ahyan
             </Ahyan>
         </Header>
-        <Dialog open={true} PaperProps={{sx:Dialogbox}} >
+        <Dialog open={true} hideBackdrop PaperProps={{sx:Dialogbox}} >
             <Left>
                 <Typography variant='h5' > To use whatsapp on your device </Typography>
                 <ListLi>
