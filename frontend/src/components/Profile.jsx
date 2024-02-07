@@ -1,8 +1,8 @@
-import { ArrowBack, CameraEnhance, Create, Error } from '@mui/icons-material'
+import { ArrowBack, CameraEnhance, Create, Email, Error } from '@mui/icons-material'
 import { AppBar, Drawer, Typography, styled, Box } from '@mui/material'
-import Background from '../../public/background.jpg'
-import LogoImage from '../../public/portfolio.png'
+import Header from './ProfileBox/Header'
 import React from 'react'
+import Logobox from './ProfileBox/Logobox'
 
 function Profile() {
     const drawerStyle = {
@@ -11,20 +11,8 @@ function Profile() {
         width: 485,
         height:660,
     }
-    const Header = styled(AppBar)`
-        position:absolute;
-        height:8rem;
-        background:#008069;
-        display:flex;
-        justify-content:space-around;
-        align-items:center;
-        flex-direction:row;
-    `
-    const LogoBox = styled(Box)`
-        background:url(${Background}) no-repeat center / cover;
-        height:25%;
-        position:relative;
-    `
+
+
     const Wrapper = styled(Box)`
         width:100%;
         height:81%;
@@ -42,59 +30,16 @@ function Profile() {
             background: transparent;
         }
     `
-    const Image = styled('img')({
-        width: '8rem',
-        height: '8rem',
-        position:'absolute',
-        top:'25%',
-        left:'50%',
-        transform: 'translate(-50%, 0%)',
-        objectFit: 'contain',
-        padding:'1rem',
-        boxSizing:'border-box',
-        background:'#fff',
-        border:'0.3rem solid #d7d7d7',
-        borderRadius: '50%',
-    })
-    const Camera = styled(Box)`
-        width:6rem;
-        height:6rem;
-        background:#d7d7d7;
-        position:absolute;
-        top:25%;
-        opacity: 0;
-        left:50%;
-        transform: translate(-50%, 0%);
-        border-radius:50%;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction:column;
-        padding:1rem;
-        transition: all .4s ease-in-out;
-        & > p{
-            font-size:0.6rem;
-        }
-        & > svg{
-            font-size:3rem;
-            color:#00a884;
-        }
-        &:hover{
-            cursor:pointer;
-            opacity:1;
-        }
-    `
 
     const Details = styled(Box)`
         display:flex;
         flex-direction:column;
-        margin-top:2rem;
-        margin-top:5rem;
+        gap:2rem;
+        margin-top:4rem;
         & > p{
             font-size:0.9rem;
             color:#00a884;
             margin-left:1.5rem;
-            margin-bottom:1.5rem;
         }
     `
     const About = styled(Box)`
@@ -109,6 +54,12 @@ function Profile() {
         }
         & > svg:nth-child(3){
             margin-left:6rem;
+            &:hover{
+                cursor:pointer;
+                color:#00a884;
+                transform:scale(1.2);
+                transition:0.3s;
+            }
         }
     `
     const NameDetail = styled(Box)`
@@ -129,18 +80,9 @@ function Profile() {
   return (
     <>
         <Drawer open={true} PaperProps={{sx: drawerStyle }} style={{zIndex:1300, position:'relative'}} >
-            <Header>
-                <ArrowBack />
-                <Typography variant='h5' > Profile </Typography>
-            </Header>
+            <Header />
             <Wrapper>
-                <LogoBox>
-                    <Image src={LogoImage} draggable='false' alt="Logo" />
-                    <Camera>
-                        <CameraEnhance />
-                        <Typography> Change Profile Pic  </Typography>
-                    </Camera>
-                </LogoBox>
+                <Logobox />
                 <Details>
                     <p>About and Gmail</p>
                     <NameDetail>
@@ -155,12 +97,12 @@ function Profile() {
                         <Create />
                     </About>
                     <About>
-                        <Error />
+                        <Email />
                         <Typography>
-                            There is no place like 127.0.0.1
+                            {'Email@gmail.com'}
                         </Typography>
-                        <Create />
                     </About>
+                    <p style={{textAlign:'center'}} >You can't change anything 🤣  </p>
                 </Details>
             </Wrapper>
         </Drawer>
