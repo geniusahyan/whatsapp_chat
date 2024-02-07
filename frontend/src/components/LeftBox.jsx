@@ -3,6 +3,7 @@ import { Box, styled } from '@mui/material'
 import LeftTopBox from './LeftTopBox';
 import LeftBottomBox from './LeftBottomBox';
 import Profile from './Profile';
+import Status from './Status/Status'
 
 function LeftBox() {
     const Left = styled(Box)`
@@ -10,7 +11,7 @@ function LeftBox() {
         box-sizing: border-box;
         width:40%;
         user-select: none;
-        min-width:25rem;
+        min-width:28rem;
     `
   return (
     <>
@@ -18,6 +19,7 @@ function LeftBox() {
             <LeftTopBox />
             <LeftBottomBox />
             <Profile />
+            <Status />
         </Left>
     </>
   )

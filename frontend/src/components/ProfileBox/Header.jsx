@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { AppBar,Typography, styled} from '@mui/material'
 import { ArrowBack} from '@mui/icons-material'
+import WContext from '../../context/WContext'
 
 
-function Header() {
+function Header({text='some', onclick }) {
+
+  const {setopen} = useContext(WContext);
+
+
+
+
     const Header = styled(AppBar)`
         position:absolute;
         height:8rem;
@@ -13,11 +20,24 @@ function Header() {
         align-items:center;
         flex-direction:row;
     `
+    const Arrow = styled(ArrowBack)`
+    margin: 0 0.8rem;
+      font-size: 1.7rem;
+      border:1px solid #fff;
+      border-radius:50%;
+      &:hover{
+          cursor:pointer;
+          color:#00a884;
+          transform:scale(1.2);
+          transition:0.3s;
+
+      }
+    `
   return (
     <>
         <Header>
-            <ArrowBack />
-            <Typography variant='h5' > Profile </Typography>
+            <Arrow onClick={onclick} />
+            <Typography variant='h5' > {text} </Typography>
         </Header>
     </>
   )

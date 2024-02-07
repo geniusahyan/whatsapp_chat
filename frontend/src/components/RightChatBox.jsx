@@ -18,6 +18,7 @@ function RightChatBox() {
     })
     const ChatDialog = styled(Box)`
         height:100%;
+        min-width:45rem;
     `
     const RigthBottom = styled(Box)`
         height: 90%;

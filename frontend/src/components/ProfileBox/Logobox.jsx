@@ -1,17 +1,22 @@
-import React from 'react'
-import { AppBar,Typography, styled, Box} from '@mui/material'
-import { ArrowBack, CameraEnhance, Create, Email, Error } from '@mui/icons-material'
+import React, { useContext, useEffect, useState } from 'react'
+import { Typography, styled, Box} from '@mui/material'
+import { CameraEnhance } from '@mui/icons-material'
 import Background from '../../../public/background.jpg'
-import LogoImage from '../../../public/portfolio.png'
+import WContext from '../../context/WContext'
 
 
 
 
-function Logobox() {
+function Logobox({image}) {
+    const {Account} = useContext(WContext)
+    const [ProfileImage, setProfileImage] = useState(Background)
+
+
     const LogoBox = styled(Box)`
         background:url(${Background}) no-repeat center / cover;
         height:25%;
         position:relative;
+        overflow:visible;
     `
     const Camera = styled(Box)`
         width:6rem;
@@ -60,7 +65,7 @@ const Image = styled('img')({
   return (
     <>
         <LogoBox>
-            <Image src={LogoImage} draggable='false' alt="Logo" />
+            <Image src={image} draggable='false' alt="Logo" />
             <Camera>
                 <CameraEnhance />
                 <Typography> Change Profile Pic  </Typography>

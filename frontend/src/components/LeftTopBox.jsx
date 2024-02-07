@@ -6,7 +6,7 @@ import WContext from '../context/WContext';
 
 function LeftTopBox() {
 
-    const {setopen} = useContext(WContext);
+    const {setopen, setstts} = useContext(WContext);
 
 
 
@@ -47,7 +47,7 @@ function LeftTopBox() {
         <LeftTop>
             <LogoImg onClick={()=>setopen(true)} src={Portfolio} draggable='false' alt="dp" />
             <Iconss>
-                <MotionPhotosAuto />
+                <MotionPhotosAuto onClick={()=>setstts(true)} />
                 <Chat />
                 <MoreVert />
             </Iconss>

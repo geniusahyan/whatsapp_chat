@@ -11,6 +11,7 @@ function Message() {
         left: '47.5%',
         transform: 'translate(-50%, -50%)',
         width: '95vw',
+        minWidth:'95vw',
         maxWidth: '100%',
         height:'95%',
         bgcolor: 'background.paper',

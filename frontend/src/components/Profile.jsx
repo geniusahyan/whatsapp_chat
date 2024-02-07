@@ -1,5 +1,6 @@
-import React , { useContext, useState } from 'react'
+import React , { useContext, useEffect, useState } from 'react'
 import { Drawer, styled, Box } from '@mui/material'
+import Portfolio from '/portfolio.png'
 import Header from './ProfileBox/Header'
 import Logobox from './ProfileBox/Logobox'
 import AboutSection from './ProfileBox/AboutSection'
@@ -7,7 +8,8 @@ import WContext from '../context/WContext'
 
 function Profile() {
 
-    const {open} = useContext(WContext);
+    const {open, setopen} = useContext(WContext);
+
 
     const drawerStyle = {
         left: 33,
@@ -45,9 +47,9 @@ function Profile() {
                 transition:'all 0.3s ease-in-out'
             }
             } >
-            <Header />
+            <Header text={'Profile'} onclick={()=>setopen(false)}  />
             <Wrapper>
-                <Logobox />
+                <Logobox image={Portfolio} />
                 <AboutSection />
             </Wrapper>
         </Drawer>

@@ -99,7 +99,7 @@ export default function Login() {
                         <ListItemText primary="5. Don't do anything just Logged in using Google " />
                     </ListItem>
                     <ListItem>
-                        <ListItemText primary="6. Scanning function nahi hai but QR-Scanner se scan kar sakte ho 💝 " />
+                        <ListItemText primary="6. Scan function nahi hai but QR-Scanner se scan kar sakte ho 💝 " />
                     </ListItem>
                 </ListLi>
 

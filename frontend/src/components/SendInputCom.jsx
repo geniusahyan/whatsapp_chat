@@ -3,6 +3,15 @@ import { Box, styled } from '@mui/material'
 import { KeyboardVoice, AddCircle, AddReaction } from '@mui/icons-material';
 
 function SendInputCom() {
+
+    const getLocal = ()=>{
+        console.log(localStorage.getItem('token')) 
+    }
+
+
+
+
+
     const SendBox = styled(Box)`
     background-color:#e7e7e7;
     width:100%;
@@ -62,17 +71,17 @@ const Input = styled('input')({
   return (
     <>
         <SendBox>
-                            <Box>
-                                <AddCircle />
-                            </Box>
-                            <InputBox>
-                                <AddReaction />
-                                <Input placeholder='Type message here..' type="text" name="" id="" />
-                            </InputBox>
-                            <Box>
-                                <KeyboardVoice />
-                            </Box>
-                        </SendBox>
+            <Box>
+                <AddCircle onClick={getLocal} />
+            </Box>
+            <InputBox>
+                <AddReaction />
+                <Input placeholder='Type message here..' type="text" name="" id="" />
+            </InputBox>
+            <Box>
+                <KeyboardVoice />
+            </Box>
+        </SendBox>
     </>
   )
 }

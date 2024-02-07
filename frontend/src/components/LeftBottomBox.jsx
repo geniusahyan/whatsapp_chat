@@ -4,6 +4,11 @@ import Portfolio from '../../public/portfolio.png'
 import { Done } from '@mui/icons-material';
 
 function LeftBottomBox() {
+
+    const ChatlistPerson = [1,2,3,5,5,5,5,5,5,5,5,5,5,5];
+
+
+
     const LiContent = styled(Box)`
         display:flex;
         justify-content:space-between;
@@ -83,26 +88,33 @@ function LeftBottomBox() {
   return (
     <>
         <LeftBottom>
-            <Person>
-                <ListItem>
-                <LogoImg src={Portfolio} draggable='false' alt="dp" />
-                <LiContent>
-                    <Box>
-                        <Name>Aslam</Name>
-                        <LastMessage>
-                            <Done />
-                            <Typography>
-                                last message is somethingasdfasdfadsfasdfasd
-                            </Typography>
-                        </LastMessage>
-                    </Box>
-                    <Box>
-                        <Typography>12/01/2024</Typography>
-                    </Box>
-                </LiContent>
-                </ListItem>
-                <Divider />
-            </Person>
+
+            {
+                ChatlistPerson.map((chatList,index)=>{
+                    return(
+                        <Person key={index} >
+                            <ListItem>
+                            <LogoImg src={Portfolio} draggable='false' alt="dp" />
+                            <LiContent>
+                                <Box>
+                                    <Name>Aslam</Name>
+                                    <LastMessage>
+                                        <Done />
+                                        <Typography>
+                                            last message is somethingasdfasdfadsfasdfasd
+                                        </Typography>
+                                    </LastMessage>
+                                </Box>
+                                <Box>
+                                    <Typography>12/01/2024</Typography>
+                                </Box>
+                            </LiContent>
+                            </ListItem>
+                            <Divider />
+                        </Person>
+                    )
+                })
+            }
         </LeftBottom>
 
     </>
