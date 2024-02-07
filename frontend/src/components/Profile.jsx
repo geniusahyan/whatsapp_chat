@@ -1,12 +1,13 @@
-import React , { useState } from 'react'
+import React , { useContext, useState } from 'react'
 import { Drawer, styled, Box } from '@mui/material'
 import Header from './ProfileBox/Header'
 import Logobox from './ProfileBox/Logobox'
 import AboutSection from './ProfileBox/AboutSection'
+import WContext from '../context/WContext'
 
 function Profile() {
 
-    const [open, setopen] = useState(false);
+    const {open} = useContext(WContext);
 
     const drawerStyle = {
         left: 33,

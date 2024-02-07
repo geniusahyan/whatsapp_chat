@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Box, styled } from '@mui/material' 
 import Portfolio from '../../public/portfolio.png'
 import { Chat, MoreVert, MotionPhotosAuto } from '@mui/icons-material';
+import WContext from '../context/WContext';
 
 function LeftTopBox() {
+
+    const {setopen} = useContext(WContext);
+
+
+
     const LeftTop = styled(Box)`
         background-color:#e7e7e7;
         height:10%;
@@ -39,7 +45,7 @@ function LeftTopBox() {
   return (
     <>
         <LeftTop>
-            <LogoImg src={Portfolio} draggable='false' alt="dp" />
+            <LogoImg onClick={()=>setopen(true)} src={Portfolio} draggable='false' alt="dp" />
             <Iconss>
                 <MotionPhotosAuto />
                 <Chat />
