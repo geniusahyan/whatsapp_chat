@@ -1,7 +1,9 @@
 import React from 'react'
-import { Dialog, Box, styled, List, ListItem, ListItemText, Divider, Typography } from '@mui/material' 
+import { Dialog, Box, styled, List, ListItem, Divider, Typography } from '@mui/material' 
 import Portfolio from '../../public/portfolio.png'
-import { Chat, Done, MoreVert, MotionPhotosAuto } from '@mui/icons-material';
+import { Call, Chat, Done, MoreVert, MotionPhotosAuto, Troubleshoot, Videocam } from '@mui/icons-material';
+import EmptyWhatsapp from '../../public/emptyWhatsapp.jpg'
+import Background from '../../public/background.jpg'
 
 function Message() {
 
@@ -37,6 +39,14 @@ function Message() {
         justify-content:space-between;
         align-items:center;
     `
+    const RightTop = styled(Box)`
+        height:10%;
+        box-sizing: border-box;
+        padding:0 0.6rem;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    `
    const LeftBottom = styled(Box)`
     height: 90%;
     box-sizing: border-box;
@@ -63,7 +73,11 @@ function Message() {
         height:100%;
         width:60%;
         box-sizing: border-box;
-        padding: 1rem;
+        padding: 0;
+        overflow:hidden;
+        & > img{
+            filter: blur(3px);
+        }
     `
     const Iconss = styled(Box)`
         & > svg {
@@ -79,6 +93,23 @@ function Message() {
         }
     `
     const Person = styled(List)`
+        padding: 0;
+        & > li{
+            margin: 0;
+            padding:0.5rem 1.2rem;
+            list-style: none;
+            &:hover{
+                cursor:pointer;
+                background-color:#e7e7e7;
+                transition:0.1s;
+            }
+            & > img{
+                margin-left:0;
+            }
+        }
+    `
+    const PersonChat = styled(List)`
+        width:100%;
         padding: 0;
         & > li{
             margin: 0;
@@ -134,12 +165,42 @@ function Message() {
             width:15rem;
         }
     `  
+    const LastSeen = styled(Box)`
+        display:flex;
+        text-wrap:nowrap;
+        align-items:center;
+        gap:0.2rem;
+        margin-left:0.6rem;
+        margin-top:0.2rem;
+        & > svg{
+            font-size:1rem;
+        }
+        & > p{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width:15rem;
+        }
+    `  
     const LiContent = styled(Box)`
         display:flex;
         justify-content:space-between;
         width:100%;
         height:100%;
         align-items:center;
+    `
+    const ChatDialog = styled(Box)`
+        
+    `
+    const RigthBottom = styled(Box)`
+        height: 90%;
+        box-sizing: border-box;
+        padding:0;
+        box-sizing: border-box;
+        overflow:hidden;
+        & > img{
+            filter: brightness(110%);
+        }
     `
 
   return (
@@ -180,6 +241,39 @@ function Message() {
             </Left>
             <CustomDivider orientation='vertical' />
             <Right>
+                {/* <img width={'100%'} height={'100%'} src={EmptyWhatsapp} draggable='false' alt="emptyWhatsapp" /> */}
+                <ChatDialog>
+                    <RightTop>
+                    <PersonChat>
+                        <ListItem>
+                        <LogoImg src={Portfolio} draggable='false' alt="dp" />
+                        <LiContent>
+                            <Box>
+                                <Name>Aslam</Name>
+                                <LastSeen>
+                                    <Done />
+                                    <Typography>
+                                      last seen
+                                    </Typography>
+                                </LastSeen>
+                            </Box>
+                            <Box>
+                                <Iconss>
+                                    <Call />
+                                    <Videocam />
+                                    <Troubleshoot />
+                                    <MoreVert />
+                                </Iconss>
+                            </Box>
+                        </LiContent>
+                        </ListItem>
+                        <Divider />
+                    </PersonChat>
+                    </RightTop>
+                    <RigthBottom>
+                        <img src={Background} alt="" />
+                    </RigthBottom>
+                </ChatDialog>
             </Right>
             </Dialog>
         </Wrapper>
