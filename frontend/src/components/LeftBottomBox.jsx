@@ -1,9 +1,7 @@
 import React from 'react'
-import { Dialog, Box, styled, List, ListItem, Divider, Typography } from '@mui/material' 
+import { Box, styled, List, ListItem, Divider, Typography } from '@mui/material' 
 import Portfolio from '../../public/portfolio.png'
-import { Call, Chat, Done, MoreVert, MotionPhotosAuto, Troubleshoot, Videocam, DoneAll, KeyboardVoice, AddCircle, AddReaction } from '@mui/icons-material';
-import EmptyWhatsapp from '../../public/emptyWhatsapp.jpg'
-import Background from '../../public/background.jpg'
+import { Done } from '@mui/icons-material';
 
 function LeftBottomBox() {
     const LiContent = styled(Box)`
