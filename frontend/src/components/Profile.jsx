@@ -1,10 +1,13 @@
-import { ArrowBack, CameraEnhance, Create, Email, Error } from '@mui/icons-material'
-import { AppBar, Drawer, Typography, styled, Box } from '@mui/material'
+import React , { useState } from 'react'
+import { Drawer, styled, Box } from '@mui/material'
 import Header from './ProfileBox/Header'
-import React from 'react'
 import Logobox from './ProfileBox/Logobox'
+import AboutSection from './ProfileBox/AboutSection'
 
 function Profile() {
+
+    const [open, setopen] = useState(false);
+
     const drawerStyle = {
         left: 33,
         top: 36,
@@ -31,79 +34,20 @@ function Profile() {
         }
     `
 
-    const Details = styled(Box)`
-        display:flex;
-        flex-direction:column;
-        gap:2rem;
-        margin-top:4rem;
-        & > p{
-            font-size:0.9rem;
-            color:#00a884;
-            margin-left:1.5rem;
-        }
-    `
-    const About = styled(Box)`
-        display:flex;
-        align-items:center;
-        gap:1rem;
-        & > svg{
-            font-size:2rem;
-            color:#00a884;
-            margin-right:0.5rem;
-            margin-left:1rem;
-        }
-        & > svg:nth-child(3){
-            margin-left:6rem;
-            &:hover{
-                cursor:pointer;
-                color:#00a884;
-                transform:scale(1.2);
-                transition:0.3s;
-            }
-        }
-    `
-    const NameDetail = styled(Box)`
-        display:flex;
-        align-items:center;
-        gap:1rem;
-        & > svg{
-            font-size:2rem;
-            color:#00a884;
-            margin-right:0.5rem;
-            margin-left:1rem;
-        }
-        & > svg:nth-child(3){
-            margin-left:6rem;
-        }
-    `
 
   return (
     <>
-        <Drawer open={true} PaperProps={{sx: drawerStyle }} style={{zIndex:1300, position:'relative'}} >
+        <Drawer open={open} PaperProps={{sx: drawerStyle }} style={
+            {
+                zIndex:1300,
+                position:'relative',
+                transition:'all 0.3s ease-in-out'
+            }
+            } >
             <Header />
             <Wrapper>
                 <Logobox />
-                <Details>
-                    <p>About and Gmail</p>
-                    <NameDetail>
-                        <Error />
-                        <Typography> name </Typography>
-                    </NameDetail>
-                    <About>
-                        <Error />
-                        <Typography>
-                            There is no place like 127.0.0.1
-                        </Typography>
-                        <Create />
-                    </About>
-                    <About>
-                        <Email />
-                        <Typography>
-                            {'Email@gmail.com'}
-                        </Typography>
-                    </About>
-                    <p style={{textAlign:'center'}} >You can't change anything 🤣  </p>
-                </Details>
+                <AboutSection />
             </Wrapper>
         </Drawer>
     </>
