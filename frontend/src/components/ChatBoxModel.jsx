@@ -10,7 +10,7 @@ function ChatBoxModel() {
     padding:2rem;
     margin:0;
     overflow-y:scroll;
-    -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+    -webkit-overflow-scrolling: touch; 
     &::-webkit-scrollbar {
         width: 3px;
     }

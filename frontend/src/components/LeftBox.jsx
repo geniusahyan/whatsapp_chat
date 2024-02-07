@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, styled } from '@mui/material' 
 import LeftTopBox from './LeftTopBox';
 import LeftBottomBox from './LeftBottomBox';
+import Profile from './Profile';
 
 function LeftBox() {
     const Left = styled(Box)`
@@ -16,6 +17,7 @@ function LeftBox() {
         <Left>
             <LeftTopBox />
             <LeftBottomBox />
+            <Profile />
         </Left>
     </>
   )

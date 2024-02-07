@@ -27,6 +27,7 @@ function LeftBottomBox() {
         padding:0;
         box-sizing: border-box;
         overflow-y: scroll;
+        -webkit-overflow-scrolling: touch; 
         &::-webkit-scrollbar {
             width: 0.15rem;
         }
@@ -91,7 +92,7 @@ function LeftBottomBox() {
                         <LastMessage>
                             <Done />
                             <Typography>
-                                last message this is somethingasdfasdfadsfasdfasd
+                                last message is somethingasdfasdfadsfasdfasd
                             </Typography>
                         </LastMessage>
                     </Box>
