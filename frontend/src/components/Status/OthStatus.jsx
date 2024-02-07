@@ -1,32 +1,16 @@
-import { ListItem, styled, Box, Typography } from '@mui/material'
 import React from 'react'
+import { Drawer, List, ListItem, styled, Box, Typography } from '@mui/material'
 import Portfolio from '/portfolio.png'
 
-function Mystatus() {
-    const LogoImg = styled('img')({
-        width: '2.5rem',
-        height: '2.5rem',
-        border:'1px solid #7e4fd5',
-        borderRadius: '50%',
-        objectFit: 'contain',
-        padding:'0.1rem',
-        cursor: 'pointer',
-        marginLeft:'0.8rem'
-    })
-    const MyStatus = styled(Box)`
-        background:#d7d7d7;
-        display:flex;
-        width:100%;
-        height:5rem;
-    `
+function OthStatus() {
     const LiContent = styled(Box)`
         display:flex;
         justify-content:space-between;
         width:100%;
         height:100%;
         align-items:center;
+        
     `
-
     const Name = styled(Typography)`
         margin-left:1rem;
         font-size:1.2rem;
@@ -52,14 +36,30 @@ function Mystatus() {
             font-size:0.8rem;
         }
     `
+    const LogoImg = styled('img')({
+        width: '2.5rem',
+        height: '2.5rem',
+        border:'1px solid #7e4fd5',
+        borderRadius: '50%',
+        objectFit: 'contain',
+        padding:'0.1rem',
+        cursor: 'pointer',
+        marginLeft:'0.8rem'
+    })
+    const OtherStatus = styled(List)`
+        &:hover{
+            background:#d7d7d7;
+            transition:0.3s;
+        }
+    `
   return (
     <>
-        <MyStatus>
+        <OtherStatus >
             <ListItem>
                 <LogoImg src={Portfolio} draggable='false' alt="dp" />
                 <LiContent>
                     <Box>
-                        <Name>My Status</Name>
+                        <Name>Persone Name</Name>
                         <UpdateTiem>
                             <Typography>
                                 today at 12:01 am
@@ -68,9 +68,9 @@ function Mystatus() {
                     </Box>
                 </LiContent>
             </ListItem>
-        </MyStatus>
+        </OtherStatus>
     </>
   )
 }
 
-export default Mystatus
+export default OthStatus
