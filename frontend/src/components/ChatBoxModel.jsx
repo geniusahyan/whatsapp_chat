@@ -3,6 +3,12 @@ import { Box, styled, List, ListItem, Typography } from '@mui/material'
 import { DoneAll} from '@mui/icons-material'
 
 function ChatBoxModel() {
+
+    const messageArr = [1,2,3,4,5];
+
+
+
+
     const ChatTextBox = styled(Box)`
     width:100%;
     height:100%;
@@ -61,7 +67,7 @@ const TextMessages = styled(ListItem)`
         margin-top:0.4rem;
         text-overflow: ellipsis;
         overflow: hidden;
-        height:7rem;
+        max-height:7rem;
     }
 `
 const TimeStamp = styled(Typography)`
@@ -82,22 +88,29 @@ const TimeStamp = styled(Typography)`
     <>
         <ChatTextBox>
             <List>
-                <TextMessage>
-                    <Typography>
-                        hello Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi delectus facilis fugit.Hey, how are you? I miss you!
-                        hello Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi delectus facilis fugit.Hey, how are you? I miss you!
-                    </Typography>
-                    <TimeStamp>
-                        12:00am
-                        <DoneAll />
-                    </TimeStamp>
-                </TextMessage>
-                <TextMessages>
-                    <Typography>
-                        hello Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi delectus facilis fugit.Hey, how are you? I miss you!
-                        hello Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi delectus facilis fugit.Hey, how are you? I miss you!
-                    </Typography>
-                </TextMessages>
+                {
+                    messageArr.map((item, index) => {
+                        return (
+                            <React.Fragment key={index}>
+                                <TextMessages>
+                                        <Typography>
+                                            hello Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi delectus facilis fugit.Hey, how are you? I miss you!
+                                        </Typography>
+                                        <TimeStamp>
+                                            12:00am
+                                            <DoneAll />
+                                        </TimeStamp>
+                                    </TextMessages>
+                                    <TextMessage>
+                                        <Typography>
+                                            hello Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi delectus facilis fugit.Hey, how are you? I miss you!
+                                        </Typography>
+                                </TextMessage>
+                            </React.Fragment>
+                        )
+                    })
+                }
+                
             </List>
         </ChatTextBox>
     </>

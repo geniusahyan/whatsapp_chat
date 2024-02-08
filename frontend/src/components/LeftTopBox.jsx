@@ -1,12 +1,24 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Box, styled } from '@mui/material' 
 import Portfolio from '../../public/portfolio.png'
-import { Chat, MoreVert, MotionPhotosAuto } from '@mui/icons-material';
+import { Chat, MoreVert, MotionPhotosAuto} from '@mui/icons-material';
 import WContext from '../context/WContext';
+import MenuPop from './MenuPop';
 
 function LeftTopBox() {
 
-    const {setopen, setstts} = useContext(WContext);
+    const {setopen, setstts, handleMoreClick} = useContext(WContext);
+
+    const MoreClick = ()=>{
+        const setMenuOpen = handleMoreClick();
+        setMenuOpen(true);
+    }
+
+
+
+
+
+
 
 
 
@@ -48,8 +60,8 @@ function LeftTopBox() {
             <LogoImg onClick={()=>setopen(true)} src={Portfolio} draggable='false' alt="dp" />
             <Iconss>
                 <MotionPhotosAuto onClick={()=>setstts(true)} />
-                <Chat />
-                <MoreVert />
+                <Chat  />
+                <MoreVert onClick={MoreClick} />
             </Iconss>
         </LeftTop>
     </>

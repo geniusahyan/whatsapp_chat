@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Dialog, Box, styled, Divider } from '@mui/material' 
 import LeftBox from './LeftBox';
 import RightBox from './RightBox';
+import MenuPop from './MenuPop';
+import WContext from '../context/WContext';
 
 function Message() {
+
+    const {MenuOpen} = useContext(WContext);
+
+
+
+
+
+
+
+
+
+
 
     const Dialogbox = {
         position: 'absolute',
@@ -44,6 +58,9 @@ function Message() {
             <LeftBox />
             <CustomDivider orientation='vertical' />
             <RightBox />
+            {
+                MenuOpen && <MenuPop />
+            }
             </Dialog>
         </Wrapper>
     </>

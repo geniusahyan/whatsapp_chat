@@ -97,7 +97,7 @@ function LeftBottomBox() {
                             <LogoImg src={Portfolio} draggable='false' alt="dp" />
                             <LiContent>
                                 <Box>
-                                    <Name>Aslam</Name>
+                                    <Name>Person Name</Name>
                                     <LastMessage>
                                         <Done />
                                         <Typography>

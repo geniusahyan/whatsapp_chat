@@ -46,7 +46,7 @@ function Status() {
 
   return (
     <>
-        <Drawer open={!stts} PaperProps={{sx: drawerStyle }} style={
+        <Drawer open={stts} PaperProps={{sx: drawerStyle }} style={
             {
                 zIndex:1300,
                 position:'relative',
