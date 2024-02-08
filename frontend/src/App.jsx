@@ -15,13 +15,14 @@ function App() {
     } else {
       setLoggedtest(false);
     }
-  }, [])
+  }, [Loggedtest])
   
 
   const clientId = import.meta.env.GOOGLE_CLIENT_ID || "664189829092-9p8o04riteukjd7un6k9dr6ukn5g9ok1.apps.googleusercontent.com" ;
   return (
     <WContextProvider>
      <GoogleOAuthProvider clientId={clientId} >
+
       {
         Loggedtest? <Message /> : <Login />
       }

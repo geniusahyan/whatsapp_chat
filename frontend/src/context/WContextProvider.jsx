@@ -6,6 +6,7 @@ const WContextProvider = ({children})=>{
     const [Account, setAccount] = useState(null);
     const [MenuOpen, setMenuOpen] = useState(false);
 
+
     const handleMoreClick = ()=>{
         return setMenuOpen;
     }
@@ -18,7 +19,16 @@ const WContextProvider = ({children})=>{
     
     const [open, setopen] = useState(false);
     const [stts, setstts] = useState(false);
-    return <WContext.Provider value={{ open, setopen, Account, stts, setstts, MenuOpen, setMenuOpen, handleMoreClick }}>
+    return <WContext.Provider value={{
+         open,
+         setopen,
+         Account,
+         stts,
+         setstts,
+         MenuOpen,
+         setMenuOpen,
+         handleMoreClick,
+          }}>
         {children}
     </WContext.Provider>
 }

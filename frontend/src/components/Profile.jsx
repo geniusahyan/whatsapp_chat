@@ -44,7 +44,7 @@ function Profile() {
             {
                 zIndex:1300,
                 position:'relative',
-                transition:'all 0.3s ease-in-out'
+                transition:'all 0.7s ease-in-out'
             }
             } >
             <Header text={'Profile'} onclick={()=>setopen(false)}  />

@@ -65,6 +65,7 @@ export default function Login() {
 
     const LoginSuccess = (data)=>{
         localStorage.setItem('token',data.credential)
+        window.location.reload()
     }
     const LoginError = ()=>{
         console.log('login failed')

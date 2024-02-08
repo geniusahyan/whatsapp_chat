@@ -4,7 +4,8 @@ import LeftTopBox from './LeftTopBox';
 import LeftBottomBox from './LeftBottomBox';
 import Profile from './Profile';
 import Status from './Status/Status'
-import MenuPop from './MenuPop';
+import MenuPopup from './MenuPopup';
+// import MenuPop from './MenuPop';
 
 function LeftBox() {
     const Left = styled(Box)`
@@ -21,6 +22,7 @@ function LeftBox() {
             <LeftBottomBox />
             <Profile />
             <Status />
+            <MenuPopup />
         </Left>
     </>
   )

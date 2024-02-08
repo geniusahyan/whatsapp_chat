@@ -7,13 +7,7 @@ import WContext from '../context/WContext';
 
 function Message() {
 
-    const {MenuOpen} = useContext(WContext);
-
-
-
-
-
-
+    // const {MenuOpen} = useContext(WContext);
 
 
 
@@ -58,9 +52,6 @@ function Message() {
             <LeftBox />
             <CustomDivider orientation='vertical' />
             <RightBox />
-            {
-                MenuOpen && <MenuPop />
-            }
             </Dialog>
         </Wrapper>
     </>
