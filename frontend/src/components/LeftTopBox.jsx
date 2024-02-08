@@ -6,7 +6,7 @@ import WContext from '../context/WContext';
 
 function LeftTopBox({handleMoreClicks}) {
 
-    const {setopen, setstts } = useContext(WContext);
+    const {setOpenProfile, setOpenStatus, setOpenContact } = useContext(WContext);
 
 
 
@@ -48,10 +48,10 @@ function LeftTopBox({handleMoreClicks}) {
   return (
     <>
         <LeftTop>
-            <LogoImg onClick={()=>setopen(true)} src={Portfolio} draggable='false' alt="dp" />
+            <LogoImg onClick={()=>setOpenProfile(true)} src={Portfolio} draggable='false' alt="dp" />
             <Iconss>
-                <MotionPhotosAuto onClick={()=>setstts(true)} />
-                <Chat  />
+                <MotionPhotosAuto onClick={()=>setOpenStatus(true)} />
+                <Chat onClick={setOpenContact} />
                 <MoreVert onClick={handleMoreClicks} />
             </Iconss>
         </LeftTop>

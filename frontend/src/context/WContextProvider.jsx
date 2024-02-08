@@ -16,14 +16,17 @@ const WContextProvider = ({children})=>{
         }
     }, [])
     
-    const [open, setopen] = useState(false);
-    const [stts, setstts] = useState(false);
+    const [OpenProfile, setOpenProfile] = useState(false);
+    const [OpenStatus, setOpenStatus] = useState(false);
+    const [OpenContact, setOpenContact] = useState(false);
     return <WContext.Provider value={{
-         open,
-         setopen,
+        OpenProfile,
+        setOpenProfile,
          Account,
-         stts,
-         setstts,
+         OpenStatus,
+         setOpenStatus,
+         OpenContact,
+         setOpenContact
           }}>
         {children}
     </WContext.Provider>

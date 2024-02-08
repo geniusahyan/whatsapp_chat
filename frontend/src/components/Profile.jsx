@@ -8,7 +8,7 @@ import WContext from '../context/WContext'
 
 function Profile() {
 
-    const {open, setopen} = useContext(WContext);
+    const {OpenProfile, setOpenProfile} = useContext(WContext);
 
 
     const drawerStyle = {
@@ -40,14 +40,14 @@ function Profile() {
 
   return (
     <>
-        <Drawer open={open} PaperProps={{sx: drawerStyle }} style={
+        <Drawer open={OpenProfile} onClose={()=>setOpenProfile(false)} PaperProps={{sx: drawerStyle }} style={
             {
                 zIndex:1300,
                 position:'relative',
                 transition:'all 0.7s ease-in-out'
             }
             } >
-            <Header text={'Profile'} onclick={()=>setopen(false)}  />
+            <Header text={'Profile'} onclick={()=>setOpenProfile(false)}  />
             <Wrapper>
                 <Logobox image={Portfolio} />
                 <AboutSection />
