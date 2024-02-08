@@ -4,7 +4,6 @@ import { jwtDecode } from "jwt-decode";
 
 const WContextProvider = ({children})=>{
     const [Account, setAccount] = useState(null);
-    const [MenuOpen, setMenuOpen] = useState(false);
 
 
     const handleMoreClick = ()=>{
@@ -25,9 +24,6 @@ const WContextProvider = ({children})=>{
          Account,
          stts,
          setstts,
-         MenuOpen,
-         setMenuOpen,
-         handleMoreClick,
           }}>
         {children}
     </WContext.Provider>

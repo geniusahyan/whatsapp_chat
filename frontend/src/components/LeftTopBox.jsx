@@ -3,19 +3,10 @@ import { Box, styled } from '@mui/material'
 import Portfolio from '../../public/portfolio.png'
 import { Chat, MoreVert, MotionPhotosAuto} from '@mui/icons-material';
 import WContext from '../context/WContext';
-import MenuPop from './MenuPop';
 
-function LeftTopBox() {
+function LeftTopBox({handleMoreClicks}) {
 
-    const {setopen, setstts, handleMoreClick} = useContext(WContext);
-
-    const MoreClick = ()=>{
-        const setMenuOpen = handleMoreClick();
-        setMenuOpen(true);
-    }
-
-
-
+    const {setopen, setstts } = useContext(WContext);
 
 
 
@@ -61,7 +52,7 @@ function LeftTopBox() {
             <Iconss>
                 <MotionPhotosAuto onClick={()=>setstts(true)} />
                 <Chat  />
-                <MoreVert onClick={MoreClick} />
+                <MoreVert onClick={handleMoreClicks} />
             </Iconss>
         </LeftTop>
     </>
