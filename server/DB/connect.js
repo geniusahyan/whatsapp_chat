@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
+import dotenv from 'dotenv'
 
-const url = "mongodb+srv://ahyan:whatsappahyan@whatsappchat.fxcgvrb.mongodb.net/?retryWrites=true&w=majority"
+dotenv.config();
+
+const url = process.env.DATABASES_URL;
 
 const dbconnect = async ()=>{
     try {
