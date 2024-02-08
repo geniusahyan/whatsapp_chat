@@ -10,23 +10,23 @@ function ChatBoxModel() {
 
 
     const ChatTextBox = styled(Box)`
-    width:100%;
-    height:100%;
-    box-sizing: border-box;
-    padding:2rem;
-    margin:0;
-    overflow-y:scroll;
-    -webkit-overflow-scrolling: touch; 
-    &::-webkit-scrollbar {
-        width: 3px;
-    }
-    &::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    &::-webkit-scrollbar-thumb {
-        background: #ddd;
-    }
-`
+        width:100%;
+        height:100%;
+        box-sizing: border-box;
+        padding:2rem;
+        margin:0;
+        overflow-y:scroll;
+        -webkit-overflow-scrolling: touch; 
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #ddd;
+        }
+    `
 const TextMessage = styled(ListItem)`
     background:#256358 !important;
     padding:0.4rem 0.6rem;

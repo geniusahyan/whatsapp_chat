@@ -42,7 +42,7 @@ function Profile() {
     <>
         <Drawer open={OpenProfile} onClose={()=>setOpenProfile(false)} PaperProps={{sx: drawerStyle }} style={
             {
-                zIndex:1300,
+                zIndex:1301,
                 position:'relative',
                 transition:'all 0.7s ease-in-out'
             }

@@ -6,6 +6,7 @@ import Profile from './Profile';
 import Status from './Status/Status'
 import MenuPopup from './MenuPopup';
 import AvailableContacts from './Contacts/AvailableContacts';
+import Settings from './settings/Settings';
 
 function LeftBox() {
   const [MoreOpen, setMoreOpen] = useState(false)
@@ -37,6 +38,7 @@ function LeftBox() {
             <LeftBottomBox />
             <Profile />
             <Status />
+            <Settings />
             <AvailableContacts />
             {
                MoreOpen && <MenuPopup onCloseClick={handleMenuClick} />

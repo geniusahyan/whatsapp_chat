@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { AppBar, styled, Box, Dialog, Typography, List, ListItem, ListItemText} from '@mui/material'
 import Portfolio from '../../public/portfolio.png'
 import { GoogleLogin } from '@react-oauth/google'
-// import { jwtDecode } from "jwt-decode";
+import { addUser } from '../api/api'
+import { jwtDecode } from 'jwt-decode'
+import WContext from '../context/WContext'
 export default function Login() {
+
+    const {setAccount} = useContext(WContext);
+
+    const LoginSuccess = (data)=>{
+        const dataDecoded = jwtDecode(data.credential);
+        setAccount(dataDecoded);
+        localStorage.setItem('token',data.credential)
+        addUser(dataDecoded);
+    }
+    const LoginError = ()=>{
+        console.log('login failed')
+    }
+
+
+
+
+
+
+
+
+
 
     const Header = styled(AppBar)`
         height:14rem;
@@ -62,14 +85,6 @@ export default function Login() {
         color:#fff;
         margin-top:1rem;
     `
-
-    const LoginSuccess = (data)=>{
-        localStorage.setItem('token',data.credential)
-        window.location.reload()
-    }
-    const LoginError = ()=>{
-        console.log('login failed')
-    }
 
 
   return (

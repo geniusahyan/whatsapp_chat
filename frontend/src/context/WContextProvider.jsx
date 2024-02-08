@@ -20,13 +20,14 @@ const WContextProvider = ({children})=>{
     return <WContext.Provider value={{
         OpenProfile,
         setOpenProfile,
-         Account,
-         OpenStatus,
-         setOpenStatus,
-         OpenContact,
-         setOpenContact,
-         OpenChat,
-         setOpenChat,
+        Account,
+        setAccount,
+        OpenStatus,
+        setOpenStatus,
+        OpenContact,
+        setOpenContact,
+        OpenChat,
+        setOpenChat,
           }}>
         {children}
     </WContext.Provider>

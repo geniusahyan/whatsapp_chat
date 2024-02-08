@@ -2,5 +2,5 @@
 
 
 export const addUser = (req,res)=>{
-    res.send("some")
+    console.log(req.body)
 }

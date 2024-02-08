@@ -4,7 +4,7 @@ import WContext from '../context/WContext'
 
 function MenuPopup({setMoreOpen, onCloseClick}) {
 
-  const {setOpenProfile} = useContext(WContext);
+  const {setOpenProfile, setAccount} = useContext(WContext);
 
   const newGroup = ()=>{
 
@@ -17,7 +17,7 @@ function MenuPopup({setMoreOpen, onCloseClick}) {
 
   const LogOUt = ()=>{
     localStorage.removeItem('token');
-    location.reload();
+    setAccount(false);
   }
 
 

@@ -4,5 +4,5 @@ import { addUser } from "../controller/userControl.js";
 
 const route = express.Router();
 
-route.get('/add', addUser)
+route.post('/user', addUser)
 export default route
