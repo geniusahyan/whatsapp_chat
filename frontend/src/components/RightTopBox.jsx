@@ -18,8 +18,8 @@ function RightTopBox() {
     const LiContent = styled(Box)`
         display:flex;
         justify-content:space-between;
-        width:100%;
-        height:100%;
+        width:39rem;
+        height:4rem;
         align-items:center;
     `
 

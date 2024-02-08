@@ -38,7 +38,7 @@ function RightBox() {
             {
                 OpenChat ?   
                     <RightChatBox/> : 
-                    <img src={EmptyWhatsapp} style={{width:'100%', height:'100%'}}/>
+                    <img src={EmptyWhatsapp} draggable='false' style={{width:'100%', height:'100%'}}/>
             }
         </Right>
     </>

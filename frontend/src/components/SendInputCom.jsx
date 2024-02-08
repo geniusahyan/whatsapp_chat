@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, styled } from '@mui/material' 
 import { KeyboardVoice, AddCircle, AddReaction } from '@mui/icons-material';
 
@@ -8,6 +8,7 @@ function SendInputCom() {
         console.log(localStorage.getItem('token')) 
     }
 
+    const [sendmessage, setSendmessage] = useState("");
 
 
 

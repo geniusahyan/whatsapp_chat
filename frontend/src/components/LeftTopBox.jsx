@@ -30,7 +30,6 @@ function LeftTopBox({handleMoreClicks}) {
         objectFit: 'contain',
         padding:'0.1rem',
         cursor: 'pointer',
-        marginLeft:'0.8rem'
     })
     const Iconss = styled(Box)`
         & > svg {
