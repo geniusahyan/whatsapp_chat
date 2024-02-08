@@ -19,7 +19,7 @@ function Message() {
         width: '95vw',
         minWidth:'95vw',
         maxWidth: '100%',
-        height:'95%',
+        height:'95vh',
         bgcolor: 'background.paper',
         boxShadow: 24,
         display: 'flex',

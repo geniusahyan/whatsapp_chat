@@ -4,8 +4,20 @@ import WContext from '../context/WContext'
 
 function MenuPopup({setMoreOpen, onCloseClick}) {
 
+  const {setOpenProfile} = useContext(WContext);
+
   const newGroup = ()=>{
 
+  }
+  const profileClick = ()=>{
+    setTimeout(()=>{
+      setOpenProfile(true)
+    },100)
+  }
+
+  const LogOUt = ()=>{
+    localStorage.removeItem('token');
+    location.reload();
   }
 
 
@@ -21,16 +33,15 @@ function MenuPopup({setMoreOpen, onCloseClick}) {
 
   const ListDiv = styled(List)`
     background:#fff;
-    width:12rem;
+    width:11rem;
     margin:0;
     padding:0;
     box-sizing:border-box;
     border-radius:0.2rem;
-    height:16.4rem;
     z-index:12;
     position:absolute;
     top:3rem;
-    left:16rem;
+    left:16.7rem;
     box-shadow:0 0.2rem 0.5rem 0 rgba(0,0,0,0.1);
     &> div{
       margin:0;
@@ -57,16 +68,15 @@ function MenuPopup({setMoreOpen, onCloseClick}) {
         <ListDiv>
             <ListItem  button onClick={newGroup}>New group</ListItem>
 
-            <ListItem button  onClick={()=>setMoreOpen(false)}>Profile</ListItem>
-            
+            <ListItem button  onClick={profileClick}>Profile</ListItem>
+
             <ListItem button  onClick={()=>setMoreOpen(false)}>Starred messages</ListItem>
-            
-            <ListItem button  onClick={()=>setMoreOpen(false)}>Labels</ListItem>
-            
+
+
             <ListItem button  onClick={()=>setMoreOpen(false)}>Settings</ListItem>
-            
-            <ListItem button  onClick={()=>setMoreOpen(false)}>Log out</ListItem>
-            
+
+            <ListItem button  onClick={LogOUt}>Log out</ListItem>
+
         </ListDiv>
     </MenuCover>
   )

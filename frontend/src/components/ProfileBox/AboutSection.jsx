@@ -7,13 +7,13 @@ import WContext from '../../context/WContext'
 
 function AboutSection() {
 
-    // const { Account } = useContext(WContext);
-    // const [ProfileName, setProfileName] = useState("Guest");
-    // const [ProfileEmail, setProfileEmail] = useState("Guest@gmail.com");
-    // useEffect(() => {
-    //     setProfileName(Account.name);
-    //     setProfileEmail(Account.email);
-    // }, []);
+    const { Account } = useContext(WContext);
+    const [ProfileName, setProfileName] = useState("Guest");
+    const [ProfileEmail, setProfileEmail] = useState("Guest@gmail.com");
+    useEffect(() => {
+        setProfileName(Account.name);
+        setProfileEmail(Account.email);
+    }, []);
     
 
     const Details = styled(Box)`
@@ -70,7 +70,7 @@ function AboutSection() {
             <p>About and Gmail</p>
             <NameDetail>
                 <Error />
-                <Typography> {'ProfileName'} </Typography>
+                <Typography> {ProfileName} </Typography>
             </NameDetail>
             <About>
                 <Error />
@@ -82,7 +82,7 @@ function AboutSection() {
             <About>
                 <Email />
                 <Typography>
-                    {'ProfileEmail'}
+                    {ProfileEmail}
                 </Typography>
             </About>
             <p style={{textAlign:'center'}} >You can't change anything 🤣  </p>
