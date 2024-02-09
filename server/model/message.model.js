@@ -4,7 +4,7 @@ const  messageSchema = new mongoose.Schema({
     members: { type: [String], required: true },
     messages: { type: [String], required: true }
     },
-    {timestamp:true}
+    {timestamps:true}
     );
 
     const Message = mongoose.model('Message', messageSchema);

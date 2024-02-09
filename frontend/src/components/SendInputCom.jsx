@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, styled } from '@mui/material';
 import { KeyboardVoice, AddCircle, AddReaction, Send } from '@mui/icons-material';
 
@@ -65,33 +65,41 @@ const Input = styled('input')({
 });
 
 // Functional component
-function SendInputCom() {
-    const [sendmessage, setSendmessage] = useState("");
-
-    const setInputText = (e) => {
-        setSendmessage(e.target.value);
-        console.log(sendmessage);
+function SendInputCom({onDown, setSendmessage}) {
+    const getLocal = () => {
+        console.log(localStorage.getItem('token'));
     };
+
+    const [sendinpmessage, setSendinpmessage] = useState("");
+    const sendInputText = (e) => {
+        setSendinpmessage(e.target.value);
+    };
+
+    useEffect(()=>{
+        setSendmessage(sendinpmessage);
+    },[sendinpmessage])
 
     return (
         <>
             <SendBox>
                 <Box>
-                    <AddCircle onClick={() => console.log(localStorage.getItem('token'))} />
+                    <AddCircle onClick={getLocal} />
                 </Box>
                 <InputBox>
                     <AddReaction />
                     <Input
-                        value={sendmessage}
-                        onChange={setInputText}
+                        value={sendinpmessage}
+                        onChange={sendInputText}
+                        onKeyDown={onDown}
                         placeholder='Type message here..'
-                        onKeyDown={sendTextMesseage}
                         type="text"
                         name=""
                         id=""
                     />
                 </InputBox>
-                <Box>{sendmessage ? <Send fontSize="small" /> : <KeyboardVoice />}</Box>
+                <Box>
+                    {sendinpmessage ? <Send fontSize="small" /> : <KeyboardVoice />}
+                </Box>
             </SendBox>
         </>
     );

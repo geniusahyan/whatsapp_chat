@@ -19,3 +19,14 @@ export const newMessage = async (req,res)=>{
         return res.status(500).json(error);
     }
 }
+
+export const getMessage = async (req,res)=>{
+    try {
+        const senderId = req.body.senderId;
+        const receiverId = req.body.receiverId;
+        const message = await Message.findOne({ members:{$all: [senderId, receiverId]}})
+        return  res.status(200).json(message);
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+}

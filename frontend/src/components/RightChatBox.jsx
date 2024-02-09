@@ -1,16 +1,29 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Box, styled} from '@mui/material' 
 import Background from '../../public/background.jpg'
 import RightTopBox from './RightTopBox';
 import ChatBoxModel from './ChatBoxModel';
 import SendInputCom from './SendInputCom';
-
+import WContext from '../context/WContext';
 
 
 function RightChatBox() {
+    const {Account, CurrentPerson} = useContext(WContext);
+    const [sendmessage, setsendmessage] = useState('')
 
-
-    
+    const setInputTextOnEnter = (e)=>{
+        if (e.key == 'Enter') {
+            // let message = {
+            //     senderId: Account.sub,
+            //     receiverId: CurrentPerson.sub,
+            //     type:'text',
+            //     text:sendmessage
+            // }
+            // setsendmessage('')
+            // setMessage(message)
+            console.log(sendmessage)
+        }
+    }
 
     const BackImage = styled('img')({
         width: '100%',
@@ -46,8 +59,12 @@ function RightChatBox() {
             <RightTopBox />
             <RigthBottom>
                 <BackImage src={Background} alt="" />
-                <ChatBoxModel />
-                <SendInputCom />
+                <ChatBoxModel Account={Account} CurrentPerson={CurrentPerson} />
+                <SendInputCom
+                        sendmessage={sendmessage}
+                        setSendmessage={setsendmessage}
+                        onDown={setInputTextOnEnter}
+                />
             </RigthBottom>
         </ChatDialog>
     </>
