@@ -4,7 +4,7 @@ import WContext from '../context/WContext'
 
 function MenuPopup({setMoreOpen, onCloseClick}) {
 
-  const {setOpenProfile, setAccount, setOpenSettings} = useContext(WContext);
+  const {setOpenProfile, setAccount, setOpenSettings, setOpenStatus, setOpenChat, setOpenContact } = useContext(WContext);
 
   const newGroup = ()=>{
 

@@ -1,8 +1,8 @@
 import express from "express";
-import { addUser } from "../controller/userControl.js";
+import { addPerson } from "../controller/Person.Control.js";
 
 
 const route = express.Router();
 
-route.post('/user', addUser)
+route.post('/person', addPerson)
 export default route

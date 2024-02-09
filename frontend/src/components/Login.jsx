@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { AppBar, styled, Box, Dialog, Typography, List, ListItem, ListItemText} from '@mui/material'
 import Portfolio from '../../public/portfolio.png'
 import { GoogleLogin } from '@react-oauth/google'
-import { addUser } from '../api/api'
+import { addPerson } from '../api/api'
 import { jwtDecode } from 'jwt-decode'
 import WContext from '../context/WContext'
 export default function Login() {
@@ -13,7 +13,7 @@ export default function Login() {
         const dataDecoded = jwtDecode(data.credential);
         setAccount(dataDecoded);
         localStorage.setItem('token',data.credential)
-        addUser(dataDecoded);
+        addPerson(dataDecoded);
     }
     const LoginError = ()=>{
         console.log('login failed')
