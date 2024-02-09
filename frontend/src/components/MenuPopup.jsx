@@ -4,7 +4,7 @@ import WContext from '../context/WContext'
 
 function MenuPopup({setMoreOpen, onCloseClick}) {
 
-  const {setOpenProfile, setAccount} = useContext(WContext);
+  const {setOpenProfile, setAccount, setOpenSettings} = useContext(WContext);
 
   const newGroup = ()=>{
 
@@ -14,10 +14,20 @@ function MenuPopup({setMoreOpen, onCloseClick}) {
       setOpenProfile(true)
     },100)
   }
+  const settingClick = ()=>{
+    setTimeout(()=>{
+      setOpenSettings(true)
+    },100)
+  }
 
   const LogOUt = ()=>{
     localStorage.removeItem('token');
+    setOpenSettings(false);
     setAccount(false);
+    setOpenProfile(false);
+    setOpenStatus(false);
+    setOpenContact(false);
+    setOpenChat(false);
   }
 
 
@@ -73,7 +83,7 @@ function MenuPopup({setMoreOpen, onCloseClick}) {
             <ListItem button  onClick={()=>setMoreOpen(false)}>Starred messages</ListItem>
 
 
-            <ListItem button  onClick={()=>setMoreOpen(false)}>Settings</ListItem>
+            <ListItem button  onClick={settingClick}>Settings</ListItem>
 
             <ListItem button  onClick={LogOUt}>Log out</ListItem>
 

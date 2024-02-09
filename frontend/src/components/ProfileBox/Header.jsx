@@ -6,9 +6,6 @@ import WContext from '../../context/WContext'
 
 function Header({text='some', onclick }) {
 
-  const {setopen} = useContext(WContext);
-
-
 
 
     const Header = styled(AppBar)`

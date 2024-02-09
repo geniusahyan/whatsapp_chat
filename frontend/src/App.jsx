@@ -1,6 +1,7 @@
 import { GoogleOAuthProvider } from '@react-oauth/google' 
 import WContextProvider from './context/WContextProvider';
 import MainApp from './components/MainApp';
+import Message from './components/Message';
 
 function App() {
 

@@ -22,6 +22,7 @@ function RightBox() {
         background-color:#e7e7e7;
         height:100%;
         width:60%;
+        min-width:30rem;
         box-sizing: border-box;
         padding: 0;
         overflow:hidden;

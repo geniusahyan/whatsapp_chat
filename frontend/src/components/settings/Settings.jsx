@@ -1,17 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { Drawer, styled, Box, List, ListItem, Typography, Divider } from '@mui/material'
 import Header from '../ProfileBox/Header'
 import Portfolio from '/portfolio.png'
 import SettingItems from './SettingItems'
 import WContext from '../../context/WContext'
+import SettingProfile from './SettingProfile'
 
 
 function Settings() {
 
 
-    const {setOpenProfile} = useContext(WContext);
+    const { setOpenSettings, OpenSettings} = useContext(WContext);
 
-
+    
 
 
 
@@ -88,42 +89,21 @@ function Settings() {
             background: transparent;
         }
     `
-    const MyProfile = styled(List)`
-        background:#ccadeb;
-        height:5rem;
-        &:hover{
-            background:#d7d7d7;
-            transition:0.3s;
-        }
-    `
+
 
     
   return (
     <>
-        <Drawer open={true} onClose={()=>setOpenContact(false)} PaperProps={{sx: drawerStyle }} style={
+        <Drawer open={OpenSettings} onClose={()=>setOpenSettings(false)} PaperProps={{sx: drawerStyle }} style={
             {
                 zIndex:1300,
                 position:'relative',
                 transition:'all 0.7s ease-in-out'
             }
             } >
-            <Header text={'Settings'} onclick={()=>alert('false')}   />
+            <Header text={'Settings'} onclick={()=>setOpenSettings(false)}   />
             <Wrapper>
-                <MyProfile onClick={()=>{setOpenProfile(true)}} >
-                    <ListItem>
-                        <LogoImg src={Portfolio} draggable='false' alt="dp" />
-                        <LiContent>
-                            <Box>
-                                <Name>Persone Name</Name>
-                                <About>
-                                    <Typography>
-                                        There is no place like 127.0.0.1
-                                    </Typography>
-                                </About>
-                            </Box>
-                        </LiContent>
-                    </ListItem>
-                </MyProfile>
+                <SettingProfile />
                 <Divider />
                 <SettingItems />
             </Wrapper>

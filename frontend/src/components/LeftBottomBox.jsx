@@ -11,7 +11,7 @@ function LeftBottomBox() {
     const { Account, setOpenChat } = useContext(WContext);
     const [ProfileName, setProfileName] = useState("Guest");
     useEffect(() => {
-        setProfileName(Account.name);
+        // setProfileName(Account.name);
     }, []);
 
     const handlePersonClick = (event)=>{
@@ -107,7 +107,7 @@ function LeftBottomBox() {
                             <LogoImg src={Portfolio} draggable='false' alt="dp" />
                             <LiContent>
                                 <Box>
-                                    <Name>{ProfileName}</Name>
+                                    <Name>{'ProfileName'}</Name>
                                     <LastMessage>
                                         <Done />
                                         <Typography>

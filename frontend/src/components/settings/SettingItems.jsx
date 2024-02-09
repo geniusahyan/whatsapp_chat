@@ -1,17 +1,35 @@
-import React from 'react'
-import { Drawer, styled, Box, List, ListItem, Typography, Divider } from '@mui/material'
-import { Create, Email } from '@mui/icons-material'
+import React, { useContext } from 'react'
+import { styled, Box, Typography, Divider } from '@mui/material'
+import { CircleNotifications, DarkMode, Download,  Help, KeyboardAlt, LogoutOutlined, NoteAdd, PrivacyTip, Satellite, Security } from '@mui/icons-material'
+import WContext from '../../context/WContext'
 
 
 
 function SettingItems() {
+    const {
+        setOpenProfile,
+        setAccount,
+        setOpenStatus,
+        setOpenContact,
+        setOpenChat,
+        setOpenSettings} = useContext(WContext);
+
+const logoutClick = ()=>{
+    localStorage.removeItem('token');
+    setOpenSettings(false);
+    setAccount(false);
+    setOpenProfile(false);
+    setOpenStatus(false);
+    setOpenContact(false);
+    setOpenChat(false);
+}
 
 
     const SettingList = styled(Box)`
         display:flex;
         align-items:center;
         padding-left:1rem;
-        gap:1rem;
+        gap:1.5rem;
         height:4rem;
         &:hover{
             cursor:pointer;
@@ -25,76 +43,79 @@ function SettingItems() {
             margin-left:1rem;
         }
     `
+    const Logout = styled(Typography)`
+        color:#cd6565;
+    `
   return (
     <>
         <SettingList>
-            <Email />
+            <CircleNotifications />
             <Typography>
-                {'ProfileEmail'}
+                {'Notifications'}
             </Typography>
         </SettingList>
         <Divider />
         <SettingList>
-            <Email />
+            <PrivacyTip />
             <Typography>
-                {'ProfileEmail'}
+                {'Privacy'}
             </Typography>
         </SettingList>
         <Divider />
         <SettingList>
-            <Email />
+            <Security />
             <Typography>
-                {'ProfileEmail'}
+                {'Security'}
             </Typography>
         </SettingList>
         <Divider />
         <SettingList>
-            <Email />
+            <DarkMode />
             <Typography>
-                {'ProfileEmail'}
+                {'Theme'}
             </Typography>
         </SettingList>
         <Divider />
         <SettingList>
-            <Email />
+            <Satellite />
             <Typography>
-                {'ProfileEmail'}
+                {'Chat wallpaper'}
             </Typography>
         </SettingList>
         <Divider />
         <SettingList>
-            <Email />
+            <Download />
             <Typography>
-                {'ProfileEmail'}
+                {'Media auto download'}
             </Typography>
         </SettingList>
         <Divider />
         <SettingList>
-            <Email />
+            <NoteAdd />
             <Typography>
-                {'ProfileEmail'}
+                {'Request account info'}
             </Typography>
         </SettingList>
         <Divider />
         <SettingList>
-            <Email />
+            <KeyboardAlt />
             <Typography>
-                {'ProfileEmail'}
+                {'Keyboad shortcuts'}
             </Typography>
         </SettingList>
         <Divider />
         <SettingList>
-            <Email />
+            <Help />
             <Typography>
-                {'ProfileEmail'}
+                {'Help'}
             </Typography>
         </SettingList>
         <Divider />
-        <SettingList>
-            <Email />
-            <Typography>
-                {'ProfileEmail'}
-            </Typography>
+        <SettingList onClick={logoutClick} >
+            <LogoutOutlined />
+            <Logout>
+                {'Log out'}
+            </Logout>
         </SettingList>
         <Divider />
     </>

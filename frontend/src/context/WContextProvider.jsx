@@ -16,7 +16,8 @@ const WContextProvider = ({children})=>{
     const [OpenProfile, setOpenProfile] = useState(false);
     const [OpenStatus, setOpenStatus] = useState(false);
     const [OpenContact, setOpenContact] = useState(false);
-    const [OpenChat, setOpenChat] = useState(false)
+    const [OpenChat, setOpenChat] = useState(false);
+    const [OpenSettings, setOpenSettings] = useState(false);
     return <WContext.Provider value={{
         OpenProfile,
         setOpenProfile,
@@ -28,6 +29,8 @@ const WContextProvider = ({children})=>{
         setOpenContact,
         OpenChat,
         setOpenChat,
+        OpenSettings,
+        setOpenSettings
           }}>
         {children}
     </WContext.Provider>
