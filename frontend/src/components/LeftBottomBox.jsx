@@ -3,19 +3,28 @@ import { Box, styled, List, ListItem, Divider, Typography } from '@mui/material'
 import Portfolio from '../../public/portfolio.png'
 import { Done } from '@mui/icons-material';
 import WContext from '../context/WContext';
+import { getPerson, setMessage } from '../api/api';
 
 function LeftBottomBox() {
 
-    const ChatlistPerson = [1,2,3,5,5,5,5,5,5,5,5,5,5,5];
-
-    const { Account, setOpenChat } = useContext(WContext);
-    const [ProfileName, setProfileName] = useState("Guest");
+    const {Account} = useContext(WContext);
+    const {setCurrentPerson} = useContext(WContext)
+    const [ChatlistPerson, setChatlistPerson] = useState([])
     useEffect(() => {
-        // setProfileName(Account.name);
+        const  fetchData = async () => {
+            let response = await getPerson();
+            setChatlistPerson(response);
+            
+        }
+        fetchData();
     }, []);
 
-    const handlePersonClick = (event)=>{
-        setOpenChat(true);
+    const handlePersonClick = async (chatPerson)=>{
+        setCurrentPerson(chatPerson)
+        await setMessage({
+            senderId:  Account.sub,
+            receiverId : chatPerson.sub ,
+        })
     }
 
 
@@ -100,14 +109,18 @@ function LeftBottomBox() {
         <LeftBottom>
 
             {
-                ChatlistPerson.map((chatList,index)=>{
+                ChatlistPerson?.map((chaitPerson,index)=>{
                     return(
-                        <Person key={index} onClick={handlePersonClick} >
+                        <Person key={index} onClick={()=>{
+                            handlePersonClick(chaitPerson)
+                        }} >
                             <ListItem>
-                            <LogoImg src={Portfolio} draggable='false' alt="dp" />
+                            <LogoImg src={chaitPerson.picture} draggable='false' alt="dp" />
                             <LiContent>
                                 <Box>
-                                    <Name>{'ProfileName'}</Name>
+                                    <Name>{chaitPerson.name}{
+                                        Account.email ==  chaitPerson.email ? " (Me)" : ""
+                                    }</Name>
                                     <LastMessage>
                                         <Done />
                                         <Typography>

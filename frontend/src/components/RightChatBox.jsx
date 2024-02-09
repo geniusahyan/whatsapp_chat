@@ -9,6 +9,9 @@ import SendInputCom from './SendInputCom';
 
 function RightChatBox() {
 
+
+    
+
     const BackImage = styled('img')({
         width: '100%',
         height: '100vh',

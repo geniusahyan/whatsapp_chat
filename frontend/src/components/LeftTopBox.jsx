@@ -1,16 +1,22 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Box, styled } from '@mui/material' 
-import Portfolio from '../../public/portfolio.png'
 import { Chat, MoreVert, MotionPhotosAuto} from '@mui/icons-material';
 import WContext from '../context/WContext';
+import { jwtDecode } from "jwt-decode";
 
 function LeftTopBox({handleMoreClicks}) {
 
-    const {setOpenProfile, setOpenStatus, setOpenContact } = useContext(WContext);
+    const {setOpenProfile, setOpenStatus, setOpenContact, AccountProfileImage, setAccountProfileImage } = useContext(WContext);
     const handleOpenProfile = ()=>{
         setOpenProfile(true)
     }
 
+    useEffect(() => {
+        const localPerson = localStorage.getItem('token');
+        const personToken = jwtDecode(localPerson)
+        const profileImage = personToken.picture || image ;
+        setAccountProfileImage(profileImage);
+    }, [])
 
 
 
@@ -49,7 +55,7 @@ function LeftTopBox({handleMoreClicks}) {
   return (
     <>
         <LeftTop>
-            <LogoImg onClick={handleOpenProfile} src={Portfolio} draggable='false' alt="dp" />
+            <LogoImg onClick={handleOpenProfile} src={AccountProfileImage} draggable='false' alt="dp" />
             <Iconss>
                 <MotionPhotosAuto onClick={()=>setOpenStatus(true)} />
                 <Chat onClick={setOpenContact} />

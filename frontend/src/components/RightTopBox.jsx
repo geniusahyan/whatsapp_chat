@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Box, styled, List, ListItem, Divider, Typography } from '@mui/material' 
 import Portfolio from '../../public/portfolio.png'
 import { Call, Done, MoreVert, Troubleshoot, Videocam } from '@mui/icons-material';
+import WContext from '../context/WContext';
 
 function RightTopBox() {
+
+    const {CurrentPerson, Account} = useContext(WContext);
 
     const LogoImg = styled('img')({
         width: '2.5rem',
@@ -58,6 +61,7 @@ function RightTopBox() {
         white-space: nowrap;
         overflow: hidden;
         width:15rem;
+        margin-left:0.4rem;
     }
 ` 
 
@@ -92,14 +96,15 @@ function RightTopBox() {
         <RightTop>
                     <PersonChat>
                         <ListItem>
-                        <LogoImg src={Portfolio} draggable='false' alt="dp" />
+                        <LogoImg src={CurrentPerson.picture} draggable='false' alt="dp" />
                         <LiContent>
                             <Box>
-                                <Name>Aslam</Name>
+                                <Name>{CurrentPerson.name}{
+                                        Account.email ==  CurrentPerson.email ? " (Me)" : ""
+                                }</Name>
                                 <LastSeen>
-                                    <Done />
                                     <Typography>
-                                      last seen
+                                      offline
                                     </Typography>
                                 </LastSeen>
                             </Box>

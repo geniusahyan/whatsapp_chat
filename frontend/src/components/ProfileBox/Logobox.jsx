@@ -1,32 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Typography, styled, Box } from '@mui/material';
 import { CameraEnhance } from '@mui/icons-material';
 import Background from '../../../public/background.jpg';
-import WContext from '../../context/WContext';
+import { jwtDecode } from "jwt-decode";
+
 
 function Logobox({ image }) {
-  const { Account } = useContext(WContext);
-  const profilePicURL = Account.picture;
 
-  const [accountProfileImage, setAccountProfileImage] = useState(image);
-
-  useEffect(() => {
-    const fetchProfilePicture = async () => {
-      try {
-        const response = await axios.get(profilePicURL, {
-          responseType: 'blob',
-        });
-
-        const imageUrl = URL.createObjectURL(response.data);
-        setAccountProfileImage(imageUrl);
-      } catch (error) {
-        console.error('Error fetching profile picture:', error);
-      }
-    };
-
-    fetchProfilePicture();
-  }, [profilePicURL]);
+    const [AccountProfileImage, setAccountProfileImage] = useState(image)
+    useEffect(() => {
+        const localPerson = localStorage.getItem('token');
+        const personToken = jwtDecode(localPerson)
+        const profileImage = personToken.picture || image ;
+        setAccountProfileImage(profileImage);
+    }, [])
+    
 
   const LogoBox = styled(Box)`
     background: url(${Background}) no-repeat center / cover;
@@ -63,7 +51,7 @@ function Logobox({ image }) {
 
     &:hover {
       cursor: pointer;
-      opacity: 1;
+      opacity: 0.6;
     }
   `;
 
@@ -75,7 +63,7 @@ function Logobox({ image }) {
     left: '50%',
     transform: 'translate(-50%, 0%)',
     objectFit: 'contain',
-    padding: '1rem',
+    padding: '0.5rem',
     boxSizing: 'border-box',
     background: '#fff',
     border: '0.3rem solid #d7d7d7',
@@ -85,7 +73,7 @@ function Logobox({ image }) {
   return (
     <>
       <LogoBox>
-        <Image src={accountProfileImage} draggable='false' alt='Logo' />
+        <Image src={AccountProfileImage} draggable='false' alt='Logo' />
         <Camera>
           <CameraEnhance />
           <Typography>Change Profile Pic</Typography>

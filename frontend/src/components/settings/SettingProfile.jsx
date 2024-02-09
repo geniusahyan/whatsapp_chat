@@ -6,7 +6,7 @@ import WContext from '../../context/WContext';
 
 function SettingProfile() {
 
-    const {setOpenProfile} = useContext(WContext)
+    const {setOpenProfile, AccountProfileImage, Account } = useContext(WContext)
 
     const LogoImg = styled('img')({
         width: '4rem',
@@ -66,10 +66,10 @@ function SettingProfile() {
     <div>
         <MyProfile onClick={()=>{setOpenProfile(true)}} >
             <ListItem>
-                <LogoImg src={Portfolio} draggable='false' alt="dp" />
+                <LogoImg src={AccountProfileImage} draggable='false' alt="dp" />
                 <LiContent>
                     <Box>
-                        <Name>Persone Name</Name>
+                        <Name>{Account.name}</Name>
                         <About>
                             <Typography>
                                 There is no place like 127.0.0.1

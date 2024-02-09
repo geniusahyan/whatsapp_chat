@@ -7,7 +7,7 @@ import WContext from '../context/WContext';
 function RightBox() {
 
 
-    const {OpenChat} = useContext(WContext);
+    const {CurrentPerson} = useContext(WContext);
 
 
 
@@ -36,11 +36,11 @@ function RightBox() {
   return (
     <>
         <Right>
-            {
-                OpenChat ?   
-                    <RightChatBox/> : 
-                    <img src={EmptyWhatsapp} draggable='false' style={{width:'100%', height:'100%'}}/>
-            }
+        {
+            Object.keys(CurrentPerson).length ?
+            <RightChatBox /> :
+            <img src={EmptyWhatsapp} draggable='false' style={{ width: '100%', height: '100%' }} />
+        }
         </Right>
     </>
   )

@@ -17,3 +17,12 @@ export const addPerson = async (req,res)=>{
         return res.status(500).json(error);
     }
 }
+
+export const getPerson = async (req,res)=>{
+    try {
+        const persons = await person.find({})
+        return res.status(200).json(persons);
+    } catch (error) {
+        return res.status(500).json(error.message);
+    }
+}
