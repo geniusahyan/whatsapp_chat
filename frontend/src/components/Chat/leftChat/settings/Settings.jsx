@@ -3,7 +3,7 @@ import { Drawer, styled, Box, List, ListItem, Typography, Divider } from '@mui/m
 import Header from '../ProfileBox/Header'
 import Portfolio from '/portfolio.png'
 import SettingItems from './SettingItems'
-import WContext from '../../context/WContext'
+import WContext from '../../../../context/WContext'
 import SettingProfile from './SettingProfile'
 
 

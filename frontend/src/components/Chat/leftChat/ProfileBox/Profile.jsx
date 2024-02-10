@@ -1,10 +1,10 @@
 import React , { useContext, useEffect, useState } from 'react'
 import { Drawer, styled, Box } from '@mui/material'
 import Portfolio from '/portfolio.png'
-import Header from './ProfileBox/Header'
-import Logobox from './ProfileBox/Logobox'
-import AboutSection from './ProfileBox/AboutSection'
-import WContext from '../context/WContext'
+import Header from './Header'
+import Logobox from './Logobox'
+import AboutSection from './AboutSection'
+import WContext from '../../../../context/WContext'
 
 function Profile() {
 

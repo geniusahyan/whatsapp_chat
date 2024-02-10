@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { Dialog, Box, styled, Divider } from '@mui/material' 
-import LeftBox from './LeftBox';
-import RightBox from './RightBox';
-import WContext from '../context/WContext';
+import LeftBox from './leftChat/LeftBox';
+import RightBox from './rightChat/RightBox';
+import WContext from '../../context/WContext';
 
 function Message() {
 

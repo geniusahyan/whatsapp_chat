@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AppBar,Typography, styled} from '@mui/material'
 import { ArrowBack} from '@mui/icons-material'
-import WContext from '../../context/WContext'
+import WContext from '../../../../context/WContext'
 
 
 function Header({text='some', onclick }) {

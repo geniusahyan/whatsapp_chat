@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { styled, Box, Typography, Divider } from '@mui/material'
 import { CircleNotifications, DarkMode, Download,  Help, KeyboardAlt, LogoutOutlined, NoteAdd, PrivacyTip, Satellite, Security } from '@mui/icons-material'
-import WContext from '../../context/WContext'
+import WContext from '../../../../context/WContext'
 
 
 

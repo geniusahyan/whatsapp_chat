@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { Box, styled, List, ListItem, Divider, Typography } from '@mui/material' 
-import Portfolio from '../../public/portfolio.png'
+import Portfolio from '/portfolio.png'
 import { Call, Done, MoreVert, Troubleshoot, Videocam } from '@mui/icons-material';
-import WContext from '../context/WContext';
+import WContext from '../../../context/WContext';
 
 function RightTopBox() {
 

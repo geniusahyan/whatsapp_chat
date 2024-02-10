@@ -11,10 +11,10 @@ export const newMessage = async (req,res)=>{
         }
         const newMessage = new Message({
             members: [senderId, receiverId],
-            messages: [req.body.message]
+            messages: [req.body.text]
         });
         await newMessage.save();
-        return res.status(200).json(newMessage);
+        return res.status(200).json(req.body);
     } catch (error) {
         return res.status(500).json(error);
     }

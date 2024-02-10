@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Box, styled, List, ListItem, Divider, Typography } from '@mui/material' 
-import Portfolio from '../../public/portfolio.png'
+import Portfolio from '/portfolio.png'
 import { Done } from '@mui/icons-material';
-import WContext from '../context/WContext';
-import { getPerson, setMessage } from '../api/api';
+import WContext from '../../../context/WContext';
+import { getPerson, setMessage } from '../../../api/api';
 
 function LeftBottomBox() {
 
-    const {Account} = useContext(WContext);
-    const {setCurrentPerson} = useContext(WContext)
+    const {setCurrentPerson, Account} = useContext(WContext)
     const [ChatlistPerson, setChatlistPerson] = useState([])
     useEffect(() => {
         const  fetchData = async () => {
@@ -24,6 +23,8 @@ function LeftBottomBox() {
         await setMessage({
             senderId:  Account.sub,
             receiverId : chatPerson.sub ,
+            type:'text',
+            text:'some'
         })
     }
 
@@ -109,17 +110,17 @@ function LeftBottomBox() {
         <LeftBottom>
 
             {
-                ChatlistPerson?.map((chaitPerson,index)=>{
+                ChatlistPerson?.map((chatPerson,index)=>{
                     return(
                         <Person key={index} onClick={()=>{
-                            handlePersonClick(chaitPerson)
+                            handlePersonClick(chatPerson)
                         }} >
                             <ListItem>
-                            <LogoImg src={chaitPerson.picture} draggable='false' alt="dp" />
+                            <LogoImg src={chatPerson.picture} draggable='false' alt="dp" />
                             <LiContent>
                                 <Box>
-                                    <Name>{chaitPerson.name}{
-                                        Account.email ==  chaitPerson.email ? " (Me)" : ""
+                                    <Name>{chatPerson.name}{
+                                        Account.email ==  chatPerson.email ? " (Me)" : ""
                                     }</Name>
                                     <LastMessage>
                                         <Done />

@@ -65,7 +65,7 @@ const Input = styled('input')({
 });
 
 // Functional component
-function SendInputCom({onDown, setSendmessage}) {
+function SendInputCom({onDownkey, setSendmessage}) {
     const getLocal = () => {
         console.log(localStorage.getItem('token'));
     };
@@ -74,10 +74,12 @@ function SendInputCom({onDown, setSendmessage}) {
     const sendInputText = (e) => {
         setSendinpmessage(e.target.value);
     };
-
-    useEffect(()=>{
-        setSendmessage(sendinpmessage);
-    },[sendinpmessage])
+    const handleKeyDown = (event) =>{
+        onDownkey(event,sendinpmessage);
+        if (event.key == 'Enter' || event.type == "click" ) {
+            setSendinpmessage('');
+        }
+    }
 
     return (
         <>
@@ -90,7 +92,7 @@ function SendInputCom({onDown, setSendmessage}) {
                     <Input
                         value={sendinpmessage}
                         onChange={sendInputText}
-                        onKeyDown={onDown}
+                        onKeyDown={handleKeyDown}
                         placeholder='Type message here..'
                         type="text"
                         name=""
@@ -98,7 +100,7 @@ function SendInputCom({onDown, setSendmessage}) {
                     />
                 </InputBox>
                 <Box>
-                    {sendinpmessage ? <Send fontSize="small" /> : <KeyboardVoice />}
+                    {sendinpmessage ? <Send onClick={handleKeyDown} /> : <KeyboardVoice />}
                 </Box>
             </SendBox>
         </>

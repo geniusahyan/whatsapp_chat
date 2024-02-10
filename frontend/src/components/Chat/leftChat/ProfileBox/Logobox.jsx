@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Typography, styled, Box } from '@mui/material';
 import { CameraEnhance } from '@mui/icons-material';
-import Background from '../../../public/background.jpg';
+import Background from '/background.jpg';
 import { jwtDecode } from "jwt-decode";
 
 

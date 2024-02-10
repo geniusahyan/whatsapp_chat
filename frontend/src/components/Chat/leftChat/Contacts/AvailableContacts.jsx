@@ -1,14 +1,20 @@
-import { Drawer, styled, Box, Typography } from '@mui/material'
+import { Box, Drawer, styled} from '@mui/material'
 import React, { useContext } from 'react'
 import Header from '../ProfileBox/Header'
-import WContext from '../../context/WContext'
-import Mystatus from './Mystatus'
-import OthStatus from './OthStatus'
+import ContactList from './ContactList'
+import WContext from '../../../../context/WContext';
 
-function Status() {
+function AvailableContacts() {
 
-    const {OpenStatus, setOpenStatus} = useContext(WContext);
-    const AllStatus = [1,2,3,4,5,6,7,8];
+    const ContactArr = [1,2,3,4,5,6,7,8,7,5];
+
+    const {OpenContact, setOpenContact} = useContext(WContext)
+
+
+
+
+
+
 
     const drawerStyle = {
         left: 33,
@@ -16,6 +22,7 @@ function Status() {
         width: 485,
         height:660,
     }
+
 
     const Wrapper = styled(Box)`
         width:100%;
@@ -34,33 +41,21 @@ function Status() {
             background: transparent;
         }
     `
-
-
- 
-    const View = styled(Typography)`
-        font-size:1.3rem;
-        margin:0.5rem 1rem;
-        color:#00a884;
-    `
-
-
   return (
     <>
-        <Drawer open={OpenStatus} onClose={()=>setOpenStatus(false)} PaperProps={{sx: drawerStyle }} style={
+        <Drawer open={OpenContact} onClose={()=>setOpenContact(false)} PaperProps={{sx: drawerStyle }} style={
             {
                 zIndex:1300,
                 position:'relative',
-                transition:'all 0.3s ease-in-out'
+                transition:'all 0.7s ease-in-out'
             }
             } >
-            <Header text={'Status'} onclick={()=>setOpenStatus(false)} />
+            <Header text={'Contacts'} onclick={()=>setOpenContact(false)}   />
             <Wrapper>
-                <Mystatus />
-                <View>Viewed</View>
                 {
-                    AllStatus.map((status, index)=>{
+                    ContactArr.map((Contact, index)=>{
                         return(
-                            <OthStatus key={index} />
+                            <ContactList key={index} />
                         )
                     })
                 }
@@ -70,4 +65,4 @@ function Status() {
   )
 }
 
-export default Status
+export default AvailableContacts

@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { Box, styled } from '@mui/material' 
 import LeftTopBox from './LeftTopBox';
-import LeftBottomBox from './LeftBottomBox';
-import Profile from './Profile';
+import LeftBottomBox from './LeftBottomBox'
+import Profile from './ProfileBox/Profile';
 import Status from './Status/Status'
-import MenuPopup from './MenuPopup';
+import MenuPopup from '../../MenuPopup';
 import AvailableContacts from './Contacts/AvailableContacts';
 import Settings from './settings/Settings';
 

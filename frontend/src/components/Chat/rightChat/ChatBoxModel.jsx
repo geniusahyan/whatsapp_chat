@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Box, styled, List, ListItem, Typography } from '@mui/material' 
 import { DoneAll} from '@mui/icons-material'
-import { getMessage } from '../api/api';
+import { getMessage } from '../../../api/api';
 
 function ChatBoxModel({Account, CurrentPerson}) {
 
@@ -12,9 +12,6 @@ function ChatBoxModel({Account, CurrentPerson}) {
             let data = await getMessage({
                 senderId: Account.sub,
                 recieverId: CurrentPerson.sub,
-                // messageId: message._id,
-                // type:'text',
-                // text:'some'
             })
             // console.log(data)
         }

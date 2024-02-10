@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Box, styled, Typography } from '@mui/material' 
 import {  Create, Email, Error, Person } from '@mui/icons-material'
-import WContext from '../../context/WContext'
+import WContext from '../../../../context/WContext';
 
 
 function AboutSection() {

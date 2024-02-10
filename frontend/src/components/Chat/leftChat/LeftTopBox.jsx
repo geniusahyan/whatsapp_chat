@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Box, styled } from '@mui/material' 
 import { Chat, MoreVert, MotionPhotosAuto} from '@mui/icons-material';
-import WContext from '../context/WContext';
 import { jwtDecode } from "jwt-decode";
+import WContext from '../../../context/WContext';
 
 function LeftTopBox({handleMoreClicks}) {
 

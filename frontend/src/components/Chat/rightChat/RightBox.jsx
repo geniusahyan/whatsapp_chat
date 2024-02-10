@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { Box, styled} from '@mui/material' 
-import EmptyWhatsapp from '../../public/emptyWhatsapp.jpg'
+import EmptyWhatsapp from '/emptyWhatsapp.jpg'
 import RightChatBox from './RightChatBox';
-import WContext from '../context/WContext';
+import WContext from '../../../context/WContext';
 
 function RightBox() {
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { styled, Box, List, ListItem, Typography } from '@mui/material'
 import Portfolio from '/portfolio.png';
-import WContext from '../../context/WContext';
+import WContext from '../../../../context/WContext';
 
 
 function SettingProfile() {
