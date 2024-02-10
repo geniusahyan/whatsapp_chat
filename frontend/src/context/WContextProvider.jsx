@@ -1,11 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import WContext from "./WContext";
 import { jwtDecode } from "jwt-decode";
 import Portfolio from '/portfolio.png'
+import { io } from 'socket.io-client'
 
 
 const WContextProvider = ({children})=>{
     const [Account, setAccount] = useState(null);
+    const socketRef = useRef();
 
 
     useEffect(()=>{
@@ -13,6 +15,7 @@ const WContextProvider = ({children})=>{
             let details = localStorage.getItem("token");
             setAccount(jwtDecode(details));
         }
+        socketRef.current = io("ws://localhost:3001");
     }, [])
     
     const [OpenProfile, setOpenProfile] = useState(false);
@@ -21,7 +24,10 @@ const WContextProvider = ({children})=>{
     const [OpenSettings, setOpenSettings] = useState(false);
     const [AccountProfileImage, setAccountProfileImage] = useState(Portfolio)
     const [CurrentPerson, setCurrentPerson] = useState({})
+    const [CurrentOnline, setCurrentOnline] = useState([])
+
     return <WContext.Provider value={{
+        socketRef,
         OpenProfile,
         setOpenProfile,
         Account,
@@ -35,7 +41,9 @@ const WContextProvider = ({children})=>{
         AccountProfileImage,
         setAccountProfileImage,
         CurrentPerson,
-        setCurrentPerson
+        setCurrentPerson,
+        CurrentOnline,
+        setCurrentOnline
           }}>
         {children}
     </WContext.Provider>

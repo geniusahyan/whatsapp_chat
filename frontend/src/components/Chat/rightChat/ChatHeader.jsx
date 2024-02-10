@@ -6,7 +6,7 @@ import WContext from '../../../context/WContext';
 
 function RightTopBox() {
 
-    const {CurrentPerson, Account} = useContext(WContext);
+    const {CurrentPerson, Account, CurrentOnline} = useContext(WContext);
 
     const LogoImg = styled('img')({
         width: '2.5rem',
@@ -104,7 +104,9 @@ function RightTopBox() {
                                 }</Name>
                                 <LastSeen>
                                     <Typography>
-                                      offline
+                                      {
+                                        CurrentOnline?.find(person => person.sub === CurrentPerson.sub ) ? "Online" : "Offline"
+                                      }
                                     </Typography>
                                 </LastSeen>
                             </Box>

@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Box, styled, List, ListItem, Divider, Typography } from '@mui/material' 
-import Portfolio from '/portfolio.png'
 import { Done } from '@mui/icons-material';
 import WContext from '../../../context/WContext';
 import { getPerson, setMessage } from '../../../api/api';
 
 function LeftBottomBox() {
 
-    const {setCurrentPerson, Account} = useContext(WContext)
+    const {setCurrentPerson, Account, socketRef, setCurrentOnline} = useContext(WContext)
     const [ChatlistPerson, setChatlistPerson] = useState([])
     useEffect(() => {
         const  fetchData = async () => {
@@ -17,6 +16,12 @@ function LeftBottomBox() {
         }
         fetchData();
     }, []);
+    useEffect(()=>{
+        socketRef.current.emit('addPerson', Account);
+        socketRef.current.on('getPerson',(persons)=>{
+            setCurrentOnline(persons);
+        });
+    },[Account])
 
     const handlePersonClick = async (chatPerson)=>{
         setCurrentPerson(chatPerson)
