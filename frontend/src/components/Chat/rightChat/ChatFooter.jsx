@@ -65,21 +65,10 @@ const Input = styled('input')({
 });
 
 // Functional component
-function SendInputCom({onDownkey, setSendmessage}) {
+function ChatFooter({footerText,text, settext}) {
     const getLocal = () => {
         console.log(localStorage.getItem('token'));
     };
-
-    const [sendinpmessage, setSendinpmessage] = useState("");
-    const sendInputText = (e) => {
-        setSendinpmessage(e.target.value);
-    };
-    const handleKeyDown = (event) =>{
-        onDownkey(event,sendinpmessage);
-        if (event.key == 'Enter' || event.type == "click" ) {
-            setSendinpmessage('');
-        }
-    }
 
     return (
         <>
@@ -90,21 +79,19 @@ function SendInputCom({onDownkey, setSendmessage}) {
                 <InputBox>
                     <AddReaction />
                     <Input
-                        value={sendinpmessage}
-                        onChange={sendInputText}
-                        onKeyDown={handleKeyDown}
-                        placeholder='Type message here..'
                         type="text"
-                        name=""
-                        id=""
+                        value={text}
+                        onChange={(e)=>settext(e.target.value)}
+                        onKeyDown={(e)=>footerText(e)}
+                        placeholder='Type message here..'
                     />
                 </InputBox>
                 <Box>
-                    {sendinpmessage ? <Send onClick={handleKeyDown} /> : <KeyboardVoice />}
+                    {text ? <Send onClick={(e)=>footerText(e, text)} /> : <KeyboardVoice />}
                 </Box>
             </SendBox>
         </>
     );
 }
 
-export default SendInputCom;
+export default ChatFooter;

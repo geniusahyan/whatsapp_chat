@@ -1,29 +1,29 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Box, styled} from '@mui/material' 
 import Background from '/background.jpg'
-import RightTopBox from './RightTopBox';
-import ChatBoxModel from './ChatBoxModel';
-import SendInputCom from './SendInputCom';
+import ChatHeader from './ChatHeader';
+import ChatMessage from './ChatMessage';
+import ChatFooter from './ChatFooter';
 import WContext from '../../../context/WContext';
+import { getMessage, setMessage } from '../../../api/api';
 
 
 function RightChatBox() {
     const {Account, CurrentPerson} = useContext(WContext);
-    const [sendmessage, setsendmessage] = useState('')
+    const [messageID, setmessageID] = useState('')
 
-
-    const setInputTextOnEnter = (event, sendinpmessage) =>{
-        if (event.key == 'Enter' || event.type == "click" ) {
-            let message = {
+    useEffect(()=>{
+        const getMessageDetails = async ()=>{
+            let data = await getMessage({
                 senderId: Account.sub,
                 receiverId: CurrentPerson.sub,
-                type:'text',
-                text:sendinpmessage
-            }
-            setsendmessage('')
-            setMessage(message)
+            })
+            setmessageID(data);
         }
-    }
+        getMessageDetails();
+    },[CurrentPerson.sub])
+
+
 
     const BackImage = styled('img')({
         width: '100%',
@@ -37,7 +37,7 @@ function RightChatBox() {
         min-width:45rem;
     `
     const RigthBottom = styled(Box)`
-        height: 90%;
+        height: 89.8%;
         box-sizing: border-box;
         padding:0;
         display:flex;
@@ -56,15 +56,10 @@ function RightChatBox() {
   return (
     <>
         <ChatDialog>
-            <RightTopBox />
+            <ChatHeader />
             <RigthBottom>
                 <BackImage src={Background} alt="" />
-                <ChatBoxModel Account={Account} CurrentPerson={CurrentPerson} />
-                <SendInputCom
-                        sendmessage={sendmessage}
-                        setSendmessage={setsendmessage}
-                        onDownkey={setInputTextOnEnter}
-                />
+                <ChatMessage messageID={messageID} Account={Account} CurrentPerson={CurrentPerson}  />
             </RigthBottom>
         </ChatDialog>
     </>

@@ -28,8 +28,17 @@ export const setMessage = async (data)=>{
 export const getMessage = async (data)=>{
     try {
         const response = await axios.post(`${url}/message/get`, data);
+        console.log(response.data)
         return response.data;
     } catch (error) {
         console.log('getmessage', error);
+    }
+}
+
+export const newConvMessage = async (data)=>{
+    try {
+        await axios.post(`${url}/message/new`, data);
+    } catch (error) {
+        console.log('newconvmessage', error);
     }
 }

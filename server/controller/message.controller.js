@@ -11,7 +11,7 @@ export const newMessage = async (req,res)=>{
         }
         const newMessage = new Message({
             members: [senderId, receiverId],
-            messages: [req.body.text]
+            messages: [req.body.lastmessage]
         });
         await newMessage.save();
         return res.status(200).json(req.body);

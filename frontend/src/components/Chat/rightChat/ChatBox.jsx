@@ -4,15 +4,10 @@ import EmptyWhatsapp from '/emptyWhatsapp.jpg'
 import RightChatBox from './RightChatBox';
 import WContext from '../../../context/WContext';
 
-function RightBox() {
+function ChatBox() {
 
 
     const {CurrentPerson} = useContext(WContext);
-
-
-
-
-
 
 
 
@@ -46,4 +41,4 @@ function RightBox() {
   )
 }
 
-export default RightBox
+export default ChatBox

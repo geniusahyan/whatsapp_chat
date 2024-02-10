@@ -22,9 +22,9 @@ function LeftBottomBox() {
         setCurrentPerson(chatPerson)
         await setMessage({
             senderId:  Account.sub,
-            receiverId : chatPerson.sub ,
+            receiverId : chatPerson.sub,
             type:'text',
-            text:'some'
+            lastmessage:'this'
         })
     }
 

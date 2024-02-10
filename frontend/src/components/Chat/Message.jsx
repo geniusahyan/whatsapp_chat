@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Dialog, Box, styled, Divider } from '@mui/material' 
 import LeftBox from './leftChat/LeftBox';
-import RightBox from './rightChat/RightBox';
+import ChatBox from './rightChat/ChatBox';
 import WContext from '../../context/WContext';
 
 function Message() {
@@ -49,7 +49,7 @@ function Message() {
             <Dialog open={true} hideBackdrop PaperProps={{sx:Dialogbox}} >
             <LeftBox />
             <CustomDivider orientation='vertical' />
-            <RightBox />
+            <ChatBox />
             </Dialog>
         </Wrapper>
     </>
