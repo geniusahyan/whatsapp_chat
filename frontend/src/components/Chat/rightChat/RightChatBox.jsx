@@ -10,7 +10,8 @@ import { getMessage, setMessage } from '../../../api/api';
 
 function RightChatBox() {
     const {Account, CurrentPerson} = useContext(WContext);
-    const [messageID, setmessageID] = useState('')
+    const [messageID, setmessageID] = useState([])
+
 
     useEffect(()=>{
         const getMessageDetails = async ()=>{

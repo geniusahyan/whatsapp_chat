@@ -28,7 +28,6 @@ export const setMessage = async (data)=>{
 export const getMessage = async (data)=>{
     try {
         const response = await axios.post(`${url}/message/get`, data);
-        console.log(response.data)
         return response.data;
     } catch (error) {
         console.log('getmessage', error);
@@ -40,5 +39,14 @@ export const newConvMessage = async (data)=>{
         await axios.post(`${url}/message/new`, data);
     } catch (error) {
         console.log('newconvmessage', error);
+    }
+}
+
+export const getConvMessage = async (id)=>{
+    try {
+        const response = await axios.get(`${url}/message/get/${id}`);
+        return response.data;
+    } catch (error) {
+        console.log('getconvmessage', error);
     }
 }
