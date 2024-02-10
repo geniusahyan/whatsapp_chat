@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Box, styled, List} from '@mui/material' 
 import ChatFooter from './ChatFooter';
 import { getConvMessage, newConvMessage } from '../../../api/api';
@@ -28,7 +28,7 @@ import MessageContent from './MessageContent';
 
 function ChatMessage({Account, CurrentPerson, messageID}) {
 
-    // const messageArr = [1,2,3,4,5];
+    const scrollref = useRef();
     const [text, settext] = useState("");
     const [messageArr, setmessageArr] = useState([])
 
@@ -37,10 +37,12 @@ function ChatMessage({Account, CurrentPerson, messageID}) {
         const getMessageDetails = async ()=>{
             let data = await getConvMessage(messageID._id)
             setmessageArr(data)
-            console.log(data)
         }
-        getMessageDetails();
-    },[CurrentPerson.sub])
+        scrollref.current?.scrollIntoView({ behavior: 'smooth' });
+         const interval = setInterval(()=>{
+            getMessageDetails();
+        },500)
+    },[])
 
     const footerText = async (e)=>{
         if (e.key == 'Enter' || e.type == "click" ) {
@@ -58,12 +60,12 @@ function ChatMessage({Account, CurrentPerson, messageID}) {
 
   return (
     <>
-        <ChatTextBox>
+        <ChatTextBox ref={scrollref} >
             <List>
                 { messageArr && 
                     messageArr.map((item, index) => {
                         return (
-                            <MessageContent text={item.content} key={index} />
+                            <MessageContent time={item.createdAt} senderId={item.senderId} AccountId={Account.sub} text={item.content} key={index} />
                         )
                     })
                 }

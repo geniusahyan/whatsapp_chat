@@ -15,15 +15,28 @@ import React from 'react'
         font-size:1.2rem;
         }
     `
+
+
+
+function MessageContent({text, senderId, AccountId, time}) {
+
+    const date = new Date(time);
+    
+    const formattedTime = `${date.getUTCHours().toString().padStart(2, '0')}:${date.getUTCMinutes().toString().padStart(2, '0')}:${date.getUTCSeconds().toString().padStart(2, '0')}`;
+    
+    console.log(formattedTime);
+
+    const leftORright = senderId == AccountId ;
+
     const TextMessages = styled(ListItem)`
-        background:#256358 !important;
         color:#fff;
         font-size:14px;
         max-width:70%;
+        border-radius:7px;
         width: max-content;
         max-height:7rem;
         margin:0;
-        margin-left:auto;
+        ${leftORright ? "margin-left:auto; background:#0c4d63;border-top-right-radius:0;  ": "margin-right:auto;  background:#820dc5; border-top-left-radius:0;  "}
         margin-bottom:0.4rem;
         word-wrap:break-word;
         padding-right:6rem;
@@ -31,8 +44,6 @@ import React from 'react'
         cursor:pointer;
         background:red !important;
         }
-        border-top-left-radius:7px;
-        border-bottom-left-radius:7px;
         & > p{
         margin-bottom:0.4rem;
         text-overflow: ellipsis;
@@ -42,9 +53,6 @@ import React from 'react'
         }
     `
 
-
-function MessageContent({text}) {
-    
   return (
     <>
         <TextMessages>
@@ -52,8 +60,9 @@ function MessageContent({text}) {
                     {text}
                 </Typography>
                 <TimeStamp>
-                    {"12:00am"}
-                    <DoneAll />
+                    {formattedTime}
+                    {leftORright && <DoneAll /> }
+                    
                 </TimeStamp>
         </TextMessages>
     </>
